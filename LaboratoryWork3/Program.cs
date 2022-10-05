@@ -1,4 +1,6 @@
-﻿namespace LaboratoryWork3
+﻿using System.Collections.Generic;
+
+namespace LaboratoryWork3
 {
 	internal class Program
 	{
@@ -24,11 +26,18 @@
 			Group[] BPI = new Group[20];
 			CompletionForGroup(BPI);
 
-			for (int i = 0; i < BIST.Length; i++)
+			PrintInfo(BIST);
+			PrintInfo(BIVT);
+			PrintInfo(BPI);
+		}
+
+		private static void PrintInfo(Group[] groups)
+		{
+			for (int i = 0; i < groups.Length; i++)
 			{
-				for (int j = 0; j < BIST[i].Students!.Count; j++)
+				for (int j = 0; j < groups[i].Students!.Count; j++)
 				{
-					Console.Write($"{BIST[i]!.Students![j]}\n\n");
+					Console.Write($"{groups[i]!.Students![j]}\n\n");
 				}
 				Console.WriteLine("\n\n\n\n\n\n");
 			}
@@ -57,6 +66,7 @@
 			{
 				groups[i] = new Group
 				{
+					Name = $"{i}",
 					Students = new List<Student>()
 				};
 
