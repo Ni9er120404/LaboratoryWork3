@@ -1,6 +1,6 @@
 ﻿namespace LaboratoryWork3
 {
-	internal class USE
+	internal class UnifiedStateExam
 	{
 		public string? Name { get; set; }
 
