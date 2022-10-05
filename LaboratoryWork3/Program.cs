@@ -28,7 +28,7 @@
 			{
 				for (int j = 0; j < BIST[i].Students!.Count; j++)
 				{
-					Console.Write($"{BIST[i]!.Students![j]}\n");
+					Console.Write($"{BIST[i]!.Students![j]}\n\n");
 				}
 				Console.WriteLine("\n\n\n\n\n\n");
 			}
@@ -62,7 +62,7 @@
 
 				for (int j = 0; j < Students?.Length / groups.Length; j++)
 				{
-					groups[i]?.Students?.Add(Students![i]);
+					groups[i]?.Students?.Add(Students![j]);
 				}
 			}
 		}
