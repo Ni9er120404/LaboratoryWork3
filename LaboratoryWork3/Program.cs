@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace LaboratoryWork3
+﻿namespace LaboratoryWork3
 {
 	internal class Program
 	{
@@ -26,9 +24,35 @@ namespace LaboratoryWork3
 			Group[] BPI = new Group[20];
 			CompletionForGroup(BPI);
 
-			PrintInfo(BIST);
-			PrintInfo(BIVT);
-			PrintInfo(BPI);
+			//PrintInfo(BIST);
+			//PrintInfo(BIVT);
+			//PrintInfo(BPI);
+
+			List<Group> list = new();
+			for (int i = 0; i < 30; i++)
+			{
+				list.Add(BIVT[i]);
+			}
+			for (int i = 0; i < 30; i++)
+			{
+				list.Add(BIST[i]);
+			}
+			for (int i = 0; i < 30; i++)
+			{
+				list.Add(BPI[i]);
+			}
+			for (int i=0;i<list.Count;i++)
+			{
+				for (int j = 0; j < list[i].Students!.Count; j++)
+				{
+					var n = from number in list[i].Students
+							where number.Summ >= 80
+							orderby number.Summ
+							select number;
+					Console.WriteLine(n);
+				}
+			}
+
 		}
 
 		private static void PrintInfo(Group[] groups)
@@ -46,13 +70,14 @@ namespace LaboratoryWork3
 		private static void CompletionForStudents(Student[] students)
 		{
 			string[] list = { "Математика", "Русский", "Информатика" };
-			int num = Random.Next(0, 100);
+
 
 			for (int i = 0; i < students.Length; i++)
 			{
 				students[i] = new Student();
 				for (int j = 0; j < 3; j++)
 				{
+					int num = Random.Next(0, 100);
 					students[i]!.UnifiedStateExams![j] = new UnifiedStateExam();
 					students[i].UnifiedStateExams![j].Name = list[j];
 					students[i].UnifiedStateExams![j].Point = num;
@@ -66,7 +91,7 @@ namespace LaboratoryWork3
 			{
 				groups[i] = new Group
 				{
-					Name = $"{i}",
+					Name = i.ToString(),
 					Students = new List<Student>()
 				};
 

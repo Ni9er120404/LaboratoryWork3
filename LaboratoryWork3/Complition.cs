@@ -17,7 +17,7 @@ namespace LaboratoryWork3
 
 			for (int i = 0; i < num; i++)
 			{
-				stringBuilder.Append(Text[i]);
+				stringBuilder.Append(Text[Random.Next(0,Text.Length)]);
 			}
 
 			Info = stringBuilder.ToString();

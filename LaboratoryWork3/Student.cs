@@ -20,6 +20,8 @@
 
 		public UnifiedStateExam[]? UnifiedStateExams { get; set; } = new UnifiedStateExam[3];
 
+		public int Summ { get; private set; }
+
 		public Student()
 		{
 			Complition[] complitions = new Complition[3];
@@ -40,7 +42,16 @@
 
 		public override string ToString()
 		{
-			return $"Фамилия: \n{LastName}, \nИмя: \n{FirstName}, \nОтчество: \n{Patronymic}, \nПол: \n{Gender}, \nДень рождения:\n{Birthday}, \nГруппа:\n{Group}, \nКурс:\n{Course}, \nБаллы за экзамен:\n{UnifiedStateExams![0]}, {UnifiedStateExams![1]}, {UnifiedStateExams![2]}";
+			return $"{LastName}, "
+				+ $"{FirstName}, "
+				+ $"{Patronymic}, "
+				+ $"{Gender}, "
+				+ $"{Birthday}, "
+				+ $"{Group}, "
+				+ $"{Course}, "
+				+ $"{UnifiedStateExams![0]}, "
+				+ $"{UnifiedStateExams![1]}, "
+				+ $"{UnifiedStateExams![2]}";
 		}
 	}
 }
