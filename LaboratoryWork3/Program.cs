@@ -30,17 +30,18 @@
 
 			List<Group> groups = new();
 			List<Student> result = new();
-			foreach (var group in BIST)
+
+			foreach (Group group in BIST)
 			{
 				groups.Add(group);
 			}
 
-			foreach (var group in BIVT)
+			foreach (Group group in BIVT)
 			{
 				groups.Add(group);
 			}
 
-			foreach (var group in BPI)
+			foreach (Group group in BPI)
 			{
 				groups.Add(group);
 			}
