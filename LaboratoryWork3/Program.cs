@@ -28,31 +28,34 @@
 			//PrintInfo(BIVT);
 			//PrintInfo(BPI);
 
-			List<Group> list = new();
-			for (int i = 0; i < 30; i++)
+			List<Group> groups = new();
+			List<Student> result = new();
+			foreach (var group in BIST)
 			{
-				list.Add(BIVT[i]);
-			}
-			for (int i = 0; i < 30; i++)
-			{
-				list.Add(BIST[i]);
-			}
-			for (int i = 0; i < 30; i++)
-			{
-				list.Add(BPI[i]);
-			}
-			for (int i=0;i<list.Count;i++)
-			{
-				for (int j = 0; j < list[i].Students!.Count; j++)
-				{
-					var n = from number in list[i].Students
-							where number.Summ >= 80
-							orderby number.Summ
-							select number;
-					Console.WriteLine(n);
-				}
+				groups.Add(group);
 			}
 
+			foreach (var group in BIVT)
+			{
+				groups.Add(group);
+			}
+
+			foreach (var group in BPI)
+			{
+				groups.Add(group);
+			}
+
+			for (int i = 0; i < groups.Count; i++)
+			{
+				IEnumerable<Student> students = groups[i]!.Students!.Where(student => student!.UnifiedStateExams![0]!.Point >= 80
+													   && student!.UnifiedStateExams[1]!.Point >= 80
+													   && student!.UnifiedStateExams[2]!.Point >= 80);
+				students.ToList();
+				result.AddRange(students);
+			}
+
+
+			result.ForEach(res => Console.WriteLine(res));
 		}
 
 		private static void PrintInfo(Group[] groups)

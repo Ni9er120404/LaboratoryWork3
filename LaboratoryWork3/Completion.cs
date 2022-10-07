@@ -2,7 +2,7 @@
 
 namespace LaboratoryWork3
 {
-	internal class Complition
+	internal class Completion
 	{
 		private readonly Random Random = new();
 
@@ -10,7 +10,7 @@ namespace LaboratoryWork3
 
 		public string? Info { get; set; }
 
-		public Complition()
+		public Completion()
 		{
 			int num = Random.Next(10, 20);
 			StringBuilder stringBuilder = new();

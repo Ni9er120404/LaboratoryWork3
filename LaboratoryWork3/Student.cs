@@ -24,10 +24,10 @@
 
 		public Student()
 		{
-			Complition[] complitions = new Complition[3];
+			Completion[] complitions = new Completion[3];
 			for (int i = 0; i < complitions.Length; i++)
 			{
-				complitions[i] = new Complition();
+				complitions[i] = new Completion();
 			}
 			int n = Random.Next(0, 2);
 			string[] gen = { "М", "Ж" };
