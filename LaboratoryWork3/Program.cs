@@ -51,8 +51,10 @@
 				IEnumerable<Student> students = groups[i]!.Students!.Where(student => student!.UnifiedStateExams![0]!.Point >= 80
 													   && student!.UnifiedStateExams[1]!.Point >= 80
 													   && student!.UnifiedStateExams[2]!.Point >= 80);
-				students.ToList();
-				result.AddRange(students);
+				students.ToList().ForEach(student =>
+				{
+					result.Add(student);
+				});
 			}
 
 
