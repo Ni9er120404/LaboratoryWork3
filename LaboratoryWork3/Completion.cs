@@ -4,7 +4,7 @@ namespace LaboratoryWork3
 {
 	internal class Completion
 	{
-		private readonly Random Random = new();
+		private readonly Random Random = new(DateTime.Now.Millisecond);
 
 		private readonly string Text = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 

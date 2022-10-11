@@ -16,7 +16,7 @@
 
 		public string? Course { get; set; }
 
-		private readonly Random Random = new();
+		private readonly Random Random = new(DateTime.Now.Millisecond);
 
 		public UnifiedStateExam[]? UnifiedStateExams { get; set; } = new UnifiedStateExam[3];
 
