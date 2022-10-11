@@ -22,9 +22,9 @@
 			Group[] BPI = new Group[20];
 			CompletionForGroup(BPI);
 
-			//PrintInfo(BIST);
-			//PrintInfo(BIVT);
-			//PrintInfo(BPI);
+			PrintInfo(BIST);
+			PrintInfo(BIVT);
+			PrintInfo(BPI);
 
 			List<Group> groups = new();
 			List<Student> result = new();
@@ -43,18 +43,19 @@
 			{
 				groups.Add(group);
 			}
-			List<object> studentss = new();
+			List<Student> studentss = new();
 			for (int i = 0; i < groups.Count; i++)
 			{
 				var students = groups[i]!.Students!.Where(student => student!.UnifiedStateExams![0]!.Point >= 80
 													   && student!.UnifiedStateExams[1]!.Point >= 80
 													   && student!.UnifiedStateExams[2]!.Point >= 80);
-				studentss.Add(students);
+				var n=students.ToList();
+				studentss.AddRange(n);
 			}
 
 			foreach (var item in studentss)
 			{
-				result.Add((Student)item);
+				result.Add(item);
 			}
 
 			result.ForEach(res => Console.WriteLine(res));
@@ -82,7 +83,7 @@
 				students[i] = new Student();
 				for (int j = 0; j < 3; j++)
 				{
-					int num = Random.Next(0, 100);
+					int num = Random.Next(50, 100);
 					students[i]!.UnifiedStateExams![j] = new UnifiedStateExam();
 					students[i].UnifiedStateExams![j].Name = list[j];
 					students[i].UnifiedStateExams![j].Point = num;

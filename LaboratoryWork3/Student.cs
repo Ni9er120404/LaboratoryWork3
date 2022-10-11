@@ -35,7 +35,7 @@
 			FirstName = complitions[1].ToString();
 			Patronymic = complitions[2].ToString();
 			Gender = gen[n];
-			Birthday = DateTime.Now.ToString("dd.MM.yyyy");
+			Birthday = DateTime.Now.ToString("dd.MM");
 			int a = Random.Next(1, 5);
 			Course = a.ToString();
 		}
