@@ -6,7 +6,7 @@
 
 		public static Random Random { get; } = new(DateTime.Now.Millisecond);
 
-		private static void Main(string[] args)
+		private static void Main()
 		{
 			int num = Random.Next(60 * 20, 60 * 35);
 
@@ -26,36 +26,35 @@
 			PrintInfo(BIVT);
 			PrintInfo(BPI);
 
-			//List<Group> groups = new();
-			//List<Student> result = new();
+			List<Group> groups = new();
+			List<Student> result = new();
 
-			//foreach (Group group in BIST)
-			//{
-			//	groups.Add(group);
-			//}
+			foreach (Group group in BIST)
+			{
+				groups.Add(group);
+			}
 
-			//foreach (Group group in BIVT)
-			//{
-			//	groups.Add(group);
-			//}
+			foreach (Group group in BIVT)
+			{
+				groups.Add(group);
+			}
 
-			//foreach (Group group in BPI)
-			//{
-			//	groups.Add(group);
-			//}
+			foreach (Group group in BPI)
+			{
+				groups.Add(group);
+			}
 
-			//for (int i = 0; i < groups.Count; i++)
-			//{
-			//	IEnumerable<Student> students = groups[i]!.Students!.Where(student => student!.UnifiedStateExams![0]!.Point >= 80
-			//										   && student!.UnifiedStateExams[1]!.Point >= 80
-			//										   && student!.UnifiedStateExams[2]!.Point >= 80);
-			//	List<Student> res = students.ToList();
-			//	result.AddRange(res);
+			for (int i = 0; i < groups.Count; i++)
+			{
+				IEnumerable<Student> students = groups[i]!.Students!.Where(student => student!.UnifiedStateExams![0]!.Point >= 80
+													   && student!.UnifiedStateExams[1]!.Point >= 80
+													   && student!.UnifiedStateExams[2]!.Point >= 80);
+				List<Student> res = students.ToList();
+				result.AddRange(res);
 
-			//}
+			}
 
-
-			//result.ForEach(res => Console.WriteLine(res));
+			result.ForEach(res => Console.WriteLine(res));
 		}
 
 		private static void PrintInfo(Group[] groups)
