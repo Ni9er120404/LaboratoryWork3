@@ -22,9 +22,9 @@
 			Group[] BPI = new Group[20];
 			CompletionForGroup(BPI);
 
-			PrintInfo(BIST);
-			PrintInfo(BIVT);
-			PrintInfo(BPI);
+			//PrintInfo(BIST);
+			//PrintInfo(BIVT);
+			//PrintInfo(BPI);
 
 			List<Group> groups = new();
 			List<Student> result = new();
@@ -43,13 +43,14 @@
 			{
 				groups.Add(group);
 			}
+
 			List<Student> studentss = new();
 			for (int i = 0; i < groups.Count; i++)
 			{
-				var students = groups[i]!.Students!.Where(student => student!.UnifiedStateExams![0]!.Point >= 80
+				IEnumerable<Student> students = groups[i]!.Students!.Where(student => student!.UnifiedStateExams![0]!.Point >= 80
 													   && student!.UnifiedStateExams[1]!.Point >= 80
 													   && student!.UnifiedStateExams[2]!.Point >= 80);
-				var n=students.ToList();
+				List<Student> n = students.ToList();
 				studentss.AddRange(n);
 			}
 
