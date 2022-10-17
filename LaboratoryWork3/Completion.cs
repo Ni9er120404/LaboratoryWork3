@@ -4,14 +4,13 @@ namespace LaboratoryWork3
 {
 	internal class Completion
 	{
-		private readonly Random Random = new(DateTime.Now.Millisecond);
-
 		private readonly string Text = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
 		public string? Info { get; set; }
 
 		public Completion()
 		{
+			Random Random = new(DateTime.Now.Millisecond);
 			int num = Random.Next(10, 20);
 			StringBuilder stringBuilder = new();
 

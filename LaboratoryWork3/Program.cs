@@ -4,13 +4,14 @@
 	{
 		private static Student[]? Students { get; set; }
 
-		public static Random Random { get; } = new(DateTime.Now.Millisecond);
+		
 
 		private static void Main()
 		{
-			int num = Random.Next(60 * 20, 60 * 35);
+			Random Random  = new(DateTime.Now.Millisecond);
+			//int num = Random.Next(60 * 20, 60 * 35);
 
-			Students = new Student[num];
+			Students = new Student[25*60];
 			CompletionForStudents(Students);
 
 			Group[] BIST = new Group[20];
@@ -54,6 +55,15 @@
 				studentss.AddRange(n);
 			}
 
+			foreach (var item in groups)
+			{
+				IEnumerable<Student> students = item!.Students!.Where(student => student!.UnifiedStateExams![0]!.Point >= 80
+													   && student!.UnifiedStateExams[1]!.Point >= 80
+													   && student!.UnifiedStateExams[2]!.Point >= 80);
+				
+				studentss.AddRange(students);
+			}
+
 			foreach (var item in studentss)
 			{
 				result.Add(item);
@@ -78,13 +88,14 @@
 		{
 			string[] list = { "Математика", "Русский", "Информатика" };
 
+			Random random = new(DateTime.Now.Millisecond);
 
 			for (int i = 0; i < students.Length; i++)
 			{
 				students[i] = new Student();
 				for (int j = 0; j < 3; j++)
 				{
-					int num = Random.Next(50, 100);
+					int num = random.Next(50, 100);
 					students[i]!.UnifiedStateExams![j] = new UnifiedStateExam();
 					students[i].UnifiedStateExams![j].Name = list[j];
 					students[i].UnifiedStateExams![j].Point = num;

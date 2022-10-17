@@ -16,14 +16,14 @@
 
 		public string? Course { get; set; }
 
-		private readonly Random Random = new(DateTime.Now.Millisecond);
-
 		public UnifiedStateExam[]? UnifiedStateExams { get; set; } = new UnifiedStateExam[3];
 
 		public int Summ { get; private set; }
 
 		public Student()
 		{
+			Random Random = new(DateTime.Now.Millisecond);
+
 			Completion[] complitions = new Completion[3];
 			for (int i = 0; i < complitions.Length; i++)
 			{
