@@ -22,7 +22,7 @@
 
 		public Student()
 		{
-			Random Random = new(DateTime.Now.Millisecond);
+			Random Random = new();
 
 			Completion[] complitions = new Completion[3];
 			for (int i = 0; i < complitions.Length; i++)
