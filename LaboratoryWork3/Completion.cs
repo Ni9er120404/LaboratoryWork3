@@ -7,12 +7,11 @@ namespace LaboratoryWork3
 		private readonly string Text = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
 		public string? Info { get; set; }
-		
-		private static Random Random = new();
-		
+
+		private static readonly Random Random = new();
+
 		public Completion()
 		{
-
 			int num = Random.Next(10, 20);
 			StringBuilder stringBuilder = new();
 

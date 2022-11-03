@@ -28,71 +28,16 @@
 			Group[] BPI = new Group[20];
 			CompletionForGroup(BPI, Students3);
 
-			#region MyRegion
-			//for (int i = 0; i < BIST.Length; i++)
-			//{
-			//	for (int j = 1; j < BIST[i].Students.Count; j++)
-			//	{
-			//		if (BIST[i].Students[0] == BIST[i].Students[j])
-			//		{
-			//			Console.WriteLine(true);
-			//		}
-			//	}
-			//}
-
-			//for (int i = 0; i < BIVT.Length; i++)
-			//{
-			//	for (int j = 1; j < BIVT[i].Students.Count; j++)
-			//	{
-			//		if (BIVT[i].Students[0] == BIVT[i].Students[j])
-			//		{
-			//			Console.WriteLine(true);
-			//		}
-			//	}
-			//}
-
-			//for (int i = 0; i < BPI.Length; i++)
-			//{
-			//	for (int j = 1; j < BPI[i].Students.Count; j++)
-			//	{
-			//		for (int k = 0; k < BPI[i].Students.Count; k++)
-			//		{
-			//			if (BPI[i].Students[j] == BIVT[i].Students[k])
-			//			{
-			//				Console.WriteLine(true);
-			//			}
-			//		}
-
-			//	}
-			//}
-			#endregion
-
-			//foreach (var group in BIST)
-			//{
-			//	group.Students.ForEach(Console.WriteLine);
-			//}
-
-			//for (int i = 0; i < BIST.Length; i++)
-			//{
-			//	for (int j = 1; j < BIST[i].Students.Count; j++)
-			//	{
-			//		if (BIST[i].Students[j].UnifiedStateExams[0].Point >= 80 && BIST[i].Students[j].UnifiedStateExams[1].Point >= 80 && BIST[i].Students[j].UnifiedStateExams[2].Point >= 80)
-			//		{
-			//			if (BIST[i].Students[0] == BIST[i].Students[j])
-			//			{
-			//				Console.WriteLine(true);
-			//				break;
-			//			}
-			//			Console.WriteLine(BIST[i].Students[j]);
-			//		}
-			//	}
-			//}
-
 			IEnumerable<Group> groups = BIVT.Concat(BIST).Concat(BPI);
 
 			foreach (var item in groups)
 			{
-				var n = from a in item.Students where a.UnifiedStateExams[0].Point >= 80 && a.UnifiedStateExams[1].Point >= 80 && a.UnifiedStateExams[2].Point >= 80 select a;
+				var n = from a in item.Students
+						where a!.UnifiedStateExams![0]!.Point >= 80
+						&& a.UnifiedStateExams[1].Point >= 80
+						&& a.UnifiedStateExams[2].Point >= 80
+						select a;
+
 				foreach (var el in n) { Console.WriteLine(el); }
 			}
 		}
